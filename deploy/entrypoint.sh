@@ -5,8 +5,6 @@ DATA=/data
 
 mkdir -p $DATA/log $DATA/config $DATA/ssl $DATA/test_case $DATA/public/upload $DATA/public/avatar $DATA/public/website
 
-sed -i "s/smtplib.SMTP(/smtplib.SMTP_SSL(/g" /usr/local/lib/python3.7/site-packages/envelopes/conn.py
-
 if [ ! -f "$DATA/config/secret.key" ]; then
     echo $(cat /dev/urandom | head -1 | md5sum | head -c 32) > "$DATA/config/secret.key"
 fi
